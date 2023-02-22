@@ -1,4 +1,4 @@
-placeholder for CodeClimate badge
+<a href="https://codeclimate.com/github/iwatkot/slytest03/maintainability"><img src="https://api.codeclimate.com/v1/badges/c3ffd8026bba793a6a39/maintainability" /></a>
 
 ## Overview
 The repo contains the script, which extractes clouds of points from scenes in [NuScenes dataset](https://www.nuscenes.org/nuscenes#download).<br>
