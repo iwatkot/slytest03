@@ -1,0 +1,7 @@
+.venv/
+.lenv/
+NuScenes/
+*.ply
+logs/
+__pycache__/
+output/
