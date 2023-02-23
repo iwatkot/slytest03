@@ -13,7 +13,16 @@ CAR_BOX = "vehicle.car"
 
 
 def load_scene_data(scene_number: int) -> tuple[np.ndarray, list]:
-    """Loads the scene with neccessary data from NuScenes mini dataset."""
+    """Loads the scene with neccessary data from NuScenes mini dataset.
+    Converting coordinates of points in the array from absolute to relative.
+
+    Args:
+        scene_number (int): the number of scene in the dataset
+
+    Returns:
+        tuple[np.ndarray, list]: array of XYZ coordinates of points and
+            list of boxes objects.
+    """
     nusc = NuScenes(version='v1.0-mini', dataroot='NuScenes')
     logger.info(LogTemplates.LOADING_SCENE.format(scene_number))
 
@@ -52,7 +61,13 @@ def load_scene_data(scene_number: int) -> tuple[np.ndarray, list]:
 def extract_boxes(boxes: list, pc: np.ndarray, box_name: str):
     """Iterates over a list of boxes and found objects with specified name.
     Founding points, which are inside of the box with mask, writes clouds of
-    points into the file."""
+    points into the file.
+
+    Args:
+        boxes (list): list of the boxes objects in the scene.
+        pc (np.ndarray): array of relative XYZ coordinates of the points
+        box_name (str): the name of the box objects to work with
+    """
     for idx, box in enumerate(boxes):
         if box.name != CAR_BOX:
             continue
